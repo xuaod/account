@@ -1,0 +1,173 @@
+
+#lista-itens{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.item {
+  text-align: center;
+  width: auto;
+ 
+
+}
+
+.item img {
+  width: 100px;
+  height: auto;
+}
+
+.item h3 {
+  font-weight: normal; 
+text-align: center;
+font-size: 15px;
+}
+
+
+
+
+
+
+
+.divlista2 {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#lista-itens-2 {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+
+  overflow-x: scroll;
+  white-space: nowrap;
+  padding: 10px;
+  scroll-behavior: smooth;
+  width: 100%; /* Ajuste conforme necessário */
+ 
+ 
+}
+
+.item2 {
+  width: 100%;
+  height: auto;
+  
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+ 
+  /*justify-content: space-between;*/
+  box-shadow: inset 0 0 0 1.5px #d2e1ff;
+  padding: 10px;
+
+}
+
+.item2 img {
+  width: 138px
+  
+}
+
+
+.item2 p {
+
+  text-align: left;
+ 
+  color: rgb(51, 65, 86);
+
+  line-height: 1.0;
+}
+
+.nome-produto {
+  font-size: 12px;
+  white-space: normal; 
+  font-style: normal;
+  font-weight: 500;
+  margin-bottom: 57px; /* Espaço abaixo do nome */
+  margin-top: 5px;
+
+  display: -webkit-box; /* Garante que o texto respeite o limite de linhas */
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  white-space: normal;
+
+}
+
+
+.moeda,.valor-produto {
+
+  font-weight: bold;
+  font-size: 20px;
+  
+ 
+}
+
+
+
+
+.parcelas-texto , .valor-parcela {
+  font-size: 12px;
+  font-weight: 400;
+
+ 
+}
+
+.btne , .btnd {
+  position: absolute;
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border-radius: 5px;
+  
+  
+}
+
+.btne {
+  left: 0;
+}
+.btnd {
+  right: 0;
+}
+
+#lista-itens-2 {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto; /* Permite rolagem horizontal */
+  white-space: nowrap;
+  padding: 10px;
+  scroll-behavior: smooth;
+  width: 100%;
+  
+  /* Escondendo a barra de rolagem padrão no Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: #4A90E2 #000000;
+}
+#lista-itens-2 {
+  scrollbar-width: thin;
+  scrollbar-color: #4A90E2 #E5E7EB;
+}
+
+#lista-itens-2::-webkit-scrollbar {
+  height: 8px;
+}
+
+#lista-itens-2::-webkit-scrollbar-track {
+  background: #E5E7EB;
+  border-radius: 10px;
+}
+
+#lista-itens-2::-webkit-scrollbar-thumb {
+  background: linear-gradient(to right, #4A90E2, #1E3A8A);
+  border-radius: 10px;
+}
+
+#lista-itens-2::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to right, #1E3A8A, #4A90E2);
+}

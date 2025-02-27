@@ -1,0 +1,132 @@
+.fixo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 20px;
+  padding-right: 20px;
+  z-index: 1000; /* Garante que fique sobre os outros elementos */
+  background-color: white; /* Para evitar sobreposição estranha */
+}
+
+
+.logo {
+
+  height: 50px; /* Ajuste a altura da logo */
+ 
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+
+}
+.lupa {
+ 
+  height: 40px; /* Ajuste a altura da logo */
+ 
+}
+.carrinho {
+
+  height: 40px; /* Ajuste a altura da logo */
+  
+}
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: white;
+  padding: 15px ;
+  text-align: center;
+  display: flex;
+  
+}
+
+.menu a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  padding: 15px;
+  display: inline-block;
+}
+
+.menu a:hover {
+  background-color: #555;
+}
+
+.menu-toggle {
+  display: none;
+  background-color: rgb(243, 229, 187);
+  color: #6e4945;
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+}
+
+.menu-items {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+}
+
+
+
+@media (max-width: 768px) {
+  
+  .fixo {
+    position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+           
+}
+  
+  .menu {
+   
+     display: flex;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      
+    
+  }
+  .menu-toggle {
+      display: block;
+  }
+  .i {
+
+    display: none;
+  }
+  .menu-items {
+      display: none;
+      flex-direction: column;
+      background-color: #333;
+      width: 100%;
+      position: absolute;
+      top: 50px;
+      left: 0;
+  }
+  .menu-items a {
+      display: block;
+      padding: 10px;
+      text-align: left;
+  }
+  .menu.show .menu-items {
+      display: flex;
+  }
+
+}
