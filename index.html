@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Fixo Responsivo</title>
+    <link rel="stylesheet" href="../css/cabecalho.css">
+    <link rel="stylesheet" href="../css/inicio.css">
+    <link rel="stylesheet" href="../css/categorias.css">
+    <link rel="stylesheet" href="../css/produtos.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+
+    <div class="menu">
+        <div class="fixo">
+            <p class="i"></p>
+            <button class="menu-toggle">☰</button>
+            <img src="../img/logo.png" alt="Logo" class="logo">
+            <div class="buttons">
+                <img src="../img/lupa.png" alt="pesquisar" class="lupa">
+                <img src="../img/carrinho.png" alt="carrinho de compra" class="carrinho">
+            </div>
+        </div>
+
+        <div class="menu-items">
+            <a href="#">Smartphones</a>  
+            <a href="#">Notebook</a>  
+            <a href="#">Televisão</a>  
+            <a href="#">Lavanderia e Limpeza</a>  
+            <a href="#">Refrigerador</a>  
+            <a href="#">Fogão</a>  
+            <a href="#">Microondas</a>  
+            <a href="#">Forno</a>  
+            <a href="#">Climatizador</a>  
+            <a href="#">Acessórios</a>  
+        </div>
+    </div>
+
+  
+
+    <div class="corpo">
+
+
+        <img src="../img/banner.jpg" alt="banner" class="banner">
+        
+
+
+ 
+            <h2>O que você procura?</h2>
+            <div class="categorias" id="listaCategorias"></div>
+            <div id="lista-itens" ></div>
+      
+
+
+
+
+            <h3 class="titulo2">
+            Tecnologia que faz a diferença!   </h3>
+      
+    
+        <div class="divlista2">
+            <button class="btne" id="scroll-esquerda2">&#10094;</button>
+            <div id="lista-itens-2"></div>
+            <button class="btnd" id="scroll-direita2">&#10095;</button>
+        </div>
+
+    
+        <h3 class="titulo2">
+            Conforto e Praticidade para os dias quentes! 🔥
+            </h3>
+
+
+     
+
+
+        <div id="lista-itens-3" class="lista"></div>
+        
+        
+
+        
+
+      
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="../js/inicio.js"></script>
+    <script src="../js/produtos.js"></script>
+    <script src="../js/produtos1.js"></script>
+    <script src="../js/categorias.js"></script>
+
+    <script>
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.menu').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>
