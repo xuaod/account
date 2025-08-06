@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Missão: Jogar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', 'Arial', sans-serif;
+        }
+        
+        body {
+            background: #0f0c29;
+            background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200"><circle cx="20" cy="30" r="1" fill="white"/><circle cx="80" cy="10" r="1" fill="white"/><circle cx="150" cy="50" r="1" fill="white"/><circle cx="30" cy="120" r="1" fill="white"/><circle cx="100" cy="180" r="1" fill="white"/><circle cx="170" cy="150" r="1" fill="white"/><circle cx="40" cy="70" r="1" fill="white"/><circle cx="120" cy="90" r="1" fill="white"/><circle cx="60" cy="140" r="1" fill="white"/></svg>');
+            animation: twinkle 5s infinite alternate;
+        }
+        
+        .container {
+            background-color: rgba(15, 23, 42, 0.8);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(100, 108, 255, 0.3);
+            max-width: 400px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            border: 1px solid rgba(100, 108, 255, 0.2);
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 {
+            color: #64ffda;
+            margin-bottom: 15px;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+        }
+        
+        p {
+            color: #ccd6f6;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+        
+        .friend-name {
+            font-weight: bold;
+            color: #64ffda;
+            text-shadow: 0 0 5px rgba(100, 255, 218, 0.5);
+        }
+        
+        .game-icon {
+            font-size: 50px;
+            margin: 20px 0;
+            display: block;
+            color: #ff6482;
+            text-shadow: 0 0 15px rgba(255, 100, 130, 0.7);
+            animation: pulse 2s infinite;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #6e45e2, #89d4cf);
+            color: #0a192f;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(110, 69, 226, 0.4);
+            width: 100%;
+            max-width: 250px;
+            display: inline-block;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(110, 69, 226, 0.6);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -60%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(30deg);
+            transition: all 0.3s;
+        }
+        
+        .btn:hover::after {
+            left: 100%;
+        }
+        
+        .hidden-message {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out;
+            color: #ff6482;
+            font-weight: bold;
+            margin-top: 0;
+        }
+        
+        .show-message {
+            max-height: 100px;
+            margin-top: 20px;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes twinkle {
+            0% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        
+        /* Estilo para mobile */
+        @media (max-width: 480px) {
+            .container {
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .btn {
+                padding: 12px 25px;
+                font-size: 15px;
+            }
+            
+            .game-icon {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="game-icon">👾</div>
+        <h1>Hsvinimata<span class="friend-name"></span>!</h1>
+        <p>Quem apertar meu botão é gay</p>
+        <a id="playBtn" class="btn">Não aperta</a>
+        <div id="hiddenMessage" class="hidden-message">
+            Vira homem porra!!!<br>
+            Falei para você não apertar!
+        </div>
+    </div>
+
+    <script>
+                const playBtn = document.getElementById('playBtn');
+        const message = document.getElementById('hiddenMessage');
+        let isMessageVisible = false;
+
+        playBtn.addEventListener('click', function() {
+            if (isMessageVisible) {
+                // Esconde a mensagem
+                message.classList.remove('show-message');
+                this.textContent = 'Não aperta';
+                this.style.background = 'linear-gradient(to right, #6e45e2, #89d4cf)';
+            } else {
+                // Mostra a mensagem
+                message.classList.add('show-message');
+                this.textContent = 'Não aperta';
+                this.style.background = 'linear-gradient(to right, #89d4cf, #6e45e2)';
+            }
+            
+            // Alterna o estado
+            isMessageVisible = !isMessageVisible;
+        });
+    </script>
+</body>
+</html>
