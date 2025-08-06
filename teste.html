@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salvar Mensagem</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            margin: 10px 0;
+            padding: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #savedMessage {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Salve sua mensagem</h1>
+    <textarea id="messageInput" placeholder="Digite sua mensagem aqui..."></textarea>
+    <br>
+    <button onclick="saveMessage()">Salvar Mensagem</button>
+    <button onclick="clearMessage()">Limpar Mensagem</button>
+    
+    <h2>Mensagem Salva:</h2>
+    <div id="savedMessage"></div>
+
+    <script>
+        // Carrega a mensagem salva quando a página é aberta
+        window.onload = function() {
+            const savedMessage = localStorage.getItem('userMessage');
+            if (savedMessage) {
+                document.getElementById('savedMessage').textContent = savedMessage;
+            }
+        };
+
+        // Função para salvar a mensagem no LocalStorage
+        function saveMessage() {
+            const message = document.getElementById('messageInput').value;
+            if (message) {
+                localStorage.setItem('userMessage', message);
+                document.getElementById('savedMessage').textContent = message;
+                document.getElementById('messageInput').value = '';
+                alert('Mensagem salva com sucesso!');
+            } else {
+                alert('Por favor, digite uma mensagem antes de salvar.');
+            }
+        }
+
+        // Função para limpar a mensagem
+        function clearMessage() {
+            localStorage.removeItem('userMessage');
+            document.getElementById('savedMessage').textContent = '';
+            document.getElementById('messageInput').value = '';
+            alert('Mensagem removida!');
+        }
+    </script>
+</body>
+</html>
